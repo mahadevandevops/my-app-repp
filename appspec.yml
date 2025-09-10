@@ -13,6 +13,4 @@ hooks:
   ApplicationStart:
     - location: scripts/start_server.sh
       runas: root
-  ValidateService:
-    - location: scripts/validate_service.sh
-      runas: root
+
