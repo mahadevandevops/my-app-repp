@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "Validating service"
-curl -f http://localhost/health || exit 1
+curl -f http://localhost/ || exit 1
