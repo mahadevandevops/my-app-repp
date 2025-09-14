@@ -8,11 +8,11 @@ phases:
       - npm install
   build:
     commands:
-      - npm run build
       - mkdir -p dist
-      - cp -r index.html server.js package.json node_modules dist/
+      - cp app.js package.json package-lock.json dist/
       - cp appspec.yml dist/
       - cp -r scripts dist/
+      - cp -r node_modules dist/
 artifacts:
   base-directory: dist
   files:
