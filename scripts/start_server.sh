@@ -1,6 +1,7 @@
 #!/bin/bash
-echo "Starting application"
+set -e
+
 cd /var/www/my-sample-app
-# Start with PM2 (make sure PM2 installed in EC2)
-npm install -g pm2
-pm2 start server.js
+echo "Starting Node.js app..."
+pm2 start app.js --name my-sample-app || pm2 restart my-sample-app
+pm2 save
