@@ -1,19 +1,8 @@
 version: 0.2
-
 phases:
-  install:
-    runtime-versions:
-      nodejs: 18
-    commands:
-      - npm install
   build:
     commands:
-      - npm run build
+      - echo "Packaging artifact..."
       - mkdir -p dist
-      - cp -r index.html server.js package.json node_modules dist/
-      - cp appspec.yml dist/
-      - cp -r scripts dist/
-artifacts:
-  base-directory: dist
-  files:
-    - '**/*'
+      - zip -r dist/latest.zip . -x dist/\*
+      - aws s3 cp dist/latest.zip s3://$ARTIFACT_BUCKET/latest.zip
